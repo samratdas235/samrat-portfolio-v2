@@ -923,6 +923,23 @@ a {
     transform: scale(1.08) rotate(5deg);
 }
 
+.cert-icon-logo {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+.cert-icon-logo img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.certification-card:hover .cert-icon-logo {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1) !important;
+}
+
 .cert-info {
     display: flex;
     flex-direction: column;
