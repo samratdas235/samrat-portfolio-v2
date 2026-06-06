@@ -1728,3 +1728,299 @@ a {
         font-size: 13px;
     }
 }
+
+/* ==========================================================================
+   MINIMALIST PROJECT VISUALS
+   ========================================================================== */
+
+/* Project Visuals Base Styling */
+.project-visual {
+    width: 100%;
+    height: 140px;
+    background-color: rgba(2, 2, 2, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 1. Pipeline Visual */
+.pipeline-visual .vis-node {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--color-bg-dark);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+.pipeline-visual .node-center {
+    width: 24px;
+    height: 24px;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 15px var(--color-primary-glow);
+    animation: pulseCenter 2s infinite ease-in-out;
+}
+.pipeline-visual .node-1 { width: 14px; height: 14px; top: 30px; left: 60px; }
+.pipeline-visual .node-2 { width: 14px; height: 14px; bottom: 25px; left: 80px; }
+.pipeline-visual .node-3 { width: 14px; height: 14px; top: 40px; right: 70px; }
+
+.pipeline-visual .vis-line {
+    position: absolute;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), rgba(255, 255, 255, 0.1));
+    transform-origin: left center;
+    z-index: 1;
+}
+.pipeline-visual .line-1 {
+    width: 80px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(135deg);
+    background: repeating-linear-gradient(90deg, var(--color-primary) 0px, var(--color-primary) 6px, transparent 6px, transparent 12px);
+    animation: flowDashed 20s linear infinite;
+}
+.pipeline-visual .line-2 {
+    width: 70px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    background: repeating-linear-gradient(90deg, var(--color-primary) 0px, var(--color-primary) 6px, transparent 6px, transparent 12px);
+    animation: flowDashed 20s linear infinite reverse;
+}
+.pipeline-visual .line-3 {
+    width: 90px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(25deg);
+    background: repeating-linear-gradient(90deg, var(--color-primary) 0px, var(--color-primary) 6px, transparent 6px, transparent 12px);
+    animation: flowDashed 20s linear infinite;
+}
+
+@keyframes pulseCenter {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 10px var(--color-primary-glow); }
+    50% { transform: scale(1.15); box-shadow: 0 0 20px rgba(0, 230, 118, 0.4); }
+}
+@keyframes flowDashed {
+    to { background-position: 120px 0; }
+}
+
+/* 2. WhatsApp Visual */
+.whatsapp-visual .phone-frame {
+    width: 44px;
+    height: 76px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background-color: var(--color-bg-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+.whatsapp-visual .phone-screen {
+    width: 36px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    padding: 4px;
+}
+.whatsapp-visual .chat-bubble {
+    height: 6px;
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.whatsapp-visual .chat-bubble.left { width: 18px; align-self: flex-start; }
+.whatsapp-visual .chat-bubble.right { width: 14px; align-self: flex-end; background-color: var(--color-primary); }
+
+.whatsapp-visual .routing-line {
+    position: absolute;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+.whatsapp-visual .line-a {
+    width: 120px;
+    left: 84px;
+    top: 50px;
+    transform: rotate(15deg);
+}
+.whatsapp-visual .line-b {
+    width: 120px;
+    left: 84px;
+    top: 86px;
+    transform: rotate(-15deg);
+}
+
+.whatsapp-visual .routing-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--color-primary);
+    z-index: 2;
+}
+.whatsapp-visual .dot-1 {
+    animation: routeDot1 2.5s infinite linear;
+}
+.whatsapp-visual .dot-2 {
+    animation: routeDot2 2.5s infinite linear 1.25s;
+}
+
+.whatsapp-visual .user-nodes {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+.whatsapp-visual .user-node {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--color-bg-dark);
+}
+.whatsapp-visual .node-u1 { animation: pulseUser1 2.5s infinite ease-in-out; }
+.whatsapp-visual .node-u2 { animation: pulseUser2 2.5s infinite ease-in-out 1.25s; }
+
+@keyframes routeDot1 {
+    0% { left: 84px; top: 52px; opacity: 1; }
+    50% { left: 200px; top: 82px; opacity: 1; }
+    100% { left: 200px; top: 82px; opacity: 0; }
+}
+@keyframes routeDot2 {
+    0% { left: 84px; top: 86px; opacity: 1; }
+    50% { left: 200px; top: 54px; opacity: 1; }
+    100% { left: 200px; top: 54px; opacity: 0; }
+}
+@keyframes pulseUser1 {
+    0%, 100% { border-color: rgba(255, 255, 255, 0.2); box-shadow: none; }
+    40%, 60% { border-color: var(--color-primary); box-shadow: 0 0 10px rgba(0, 230, 118, 0.2); }
+}
+@keyframes pulseUser2 {
+    0%, 100% { border-color: rgba(255, 255, 255, 0.2); box-shadow: none; }
+    40%, 60% { border-color: var(--color-primary); box-shadow: 0 0 10px rgba(0, 230, 118, 0.2); }
+}
+
+/* 3. Dashboard Visual */
+.dashboard-visual .chart-axis-y {
+    position: absolute;
+    width: 2px;
+    height: 90px;
+    background-color: rgba(255, 255, 255, 0.1);
+    left: 40px;
+    bottom: 25px;
+}
+.dashboard-visual .chart-axis-x {
+    position: absolute;
+    width: 180px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.1);
+    left: 40px;
+    bottom: 25px;
+}
+.dashboard-visual .chart-bars {
+    position: absolute;
+    left: 60px;
+    bottom: 27px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+}
+.dashboard-visual .chart-bar {
+    width: 14px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px 4px 0 0;
+    transition: var(--transition-smooth);
+}
+.dashboard-visual .bar-1 { height: 35px; }
+.dashboard-visual .bar-2 { height: 50px; }
+.dashboard-visual .bar-3 { height: 75px; }
+
+.project-card:hover .dashboard-visual .chart-bar {
+    background-color: rgba(0, 230, 118, 0.05);
+    border-color: rgba(0, 230, 118, 0.2);
+}
+
+.dashboard-visual .chart-line-svg {
+    position: absolute;
+    width: 140px;
+    height: 70px;
+    left: 55px;
+    bottom: 27px;
+    overflow: visible;
+}
+.dashboard-visual .chart-line-path {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    animation: drawLine 3s ease-out forwards infinite;
+}
+.dashboard-visual .glowing-endpoint {
+    opacity: 0;
+    animation: showEndpoint 3s linear infinite;
+}
+
+@keyframes drawLine {
+    0% { stroke-dashoffset: 200; }
+    40%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes showEndpoint {
+    0%, 30% { opacity: 0; }
+    40%, 100% { opacity: 1; }
+}
+
+/* 4. SEO Visual */
+.seo-visual .scan-grid {
+    position: absolute;
+    width: 180px;
+    height: 100px;
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 15px 15px;
+    background-position: center;
+}
+.seo-visual .scan-radar {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, rgba(0, 230, 118, 0.08) 0deg, transparent 90deg, transparent 360deg);
+    animation: rotateRadar 4s linear infinite;
+}
+.seo-visual .scan-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+.seo-visual .ring-1 { width: 60px; height: 60px; }
+.seo-visual .ring-2 { width: 100px; height: 100px; }
+
+.seo-visual .scan-target {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--color-primary);
+    top: 45px;
+    left: 140px;
+    animation: blinkTarget 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes rotateRadar {
+    to { transform: rotate(360deg); }
+}
+@keyframes blinkTarget {
+    0% { opacity: 0.3; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
