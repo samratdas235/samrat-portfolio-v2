@@ -1841,7 +1841,7 @@ a {
         background: #0c0c0c; /* solid dark black capsule */
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 40px;
-        padding: 5px 5px 5px 14px;
+        padding: 6px 8px 6px 16px; /* balanced padding for capsule ends */
         gap: 12px; /* tight space between menu and CTA */
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         display: flex;
@@ -1865,7 +1865,10 @@ a {
         color: #ffffff; /* bright white for inactive state contrast */
         border-radius: 30px; /* capsule active background shape */
         transition: var(--transition-fast);
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
     }
     
     .nav-item.active .nav-link {
@@ -1878,6 +1881,10 @@ a {
     }
     
     .btn-nav-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
         padding: 8px 16px;
         font-size: 12.5px;
         font-weight: 800;
