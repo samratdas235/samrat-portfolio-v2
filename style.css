@@ -1520,6 +1520,9 @@ a {
         position: relative;
         top: 0;
         height: auto;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .profile-card {
@@ -1531,6 +1534,9 @@ a {
         justify-content: flex-start;
         gap: 32px;
         flex-wrap: wrap;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .avatar-container {
@@ -1583,6 +1589,9 @@ a {
         text-align: center;
         align-items: center;
         gap: 20px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     
     .avatar-container {
@@ -2023,4 +2032,96 @@ a {
 @keyframes blinkTarget {
     0% { opacity: 0.3; transform: scale(0.8); }
     100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Sidebar Logo Marquee Section */
+.profile-marquee-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0; /* Fix flexbox child overflow bug */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.profile-separator {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    margin: 8px 0 10px 0;
+}
+
+.profile-marquee-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    opacity: 0.65;
+    margin-bottom: 8px;
+    text-align: center;
+    width: 100%;
+}
+
+.logo-marquee-container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0; /* Fix flexbox child overflow bug */
+    overflow: hidden;
+    position: relative;
+    padding: 6px 0;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.logo-marquee-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    gap: 32px;
+    animation: marqueeScroll 22s linear infinite;
+}
+
+.marquee-logo {
+    height: 16px;
+    width: auto;
+    object-fit: contain;
+    opacity: 0.4;
+    transition: opacity var(--transition-fast), filter var(--transition-fast);
+}
+
+.marquee-logo.logo-invert {
+    filter: brightness(0) invert(1);
+}
+
+.marquee-logo.logo-screen {
+    mix-blend-mode: screen;
+}
+
+/* Hover effects */
+.logo-marquee-track:hover .marquee-logo {
+    opacity: 0.25;
+}
+
+.logo-marquee-track .marquee-logo:hover {
+    opacity: 0.95;
+}
+
+.logo-marquee-track .marquee-logo.logo-invert:hover {
+    filter: brightness(0) invert(1) drop-shadow(0 0 4px var(--color-primary));
+}
+
+.logo-marquee-track .marquee-logo.logo-screen:hover {
+    filter: drop-shadow(0 0 4px var(--color-primary));
+}
+
+@keyframes marqueeScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Shifts exactly 1 copy (7 logos) left to loop infinitely */
+    }
 }
