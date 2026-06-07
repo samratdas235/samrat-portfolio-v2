@@ -1668,16 +1668,28 @@ a {
         justify-content: center;
     }
     
-    /* Hide logo marquee section on mobile to prevent clutter and match reference */
+    /* Show logo marquee section on mobile but limit width to match buttons and prevent it from stretching too wide */
     .profile-marquee-section {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto 20px auto;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    
+    .profile-separator {
+        margin: 16px 0 12px 0;
     }
     
     .action-buttons {
         flex-direction: column;
         width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
         gap: 12px;
-        margin-top: 0;
         display: flex;
     }
     
