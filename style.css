@@ -1809,12 +1809,12 @@ a {
         font-size: 24px;
     }
     
-    /* Bottom navbar mobile optimization */
     .floating-navbar {
-        width: calc(100vw - 24px);
+        width: max-content;
+        max-width: calc(100vw - 24px);
         bottom: 12px;
         padding: 5px 5px 5px 12px;
-        gap: 6px;
+        gap: 16px; /* clean gap between menu and CTA button */
         border-radius: 30px;
     }
     
@@ -1823,7 +1823,7 @@ a {
     }
     
     .nav-menu {
-        gap: 6px;
+        gap: 8px; /* clean spacing between menu links */
     }
 
     .nav-link {
