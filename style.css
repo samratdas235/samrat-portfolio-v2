@@ -1514,7 +1514,7 @@ a {
 /* Small Desktop & Tablets (768px to 1023px) */
 @media (max-width: 1023px) {
     .app-container {
-        grid-template-columns: 1fr; /* Stack columns vertically */
+        grid-template-columns: minmax(0, 1fr); /* Stack columns vertically and prevent layout stretching */
         gap: 80px;
         padding-top: 48px;
         padding-bottom: 160px;
@@ -1608,6 +1608,10 @@ a {
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
+    }
+    
+    .profile-card > * {
+        flex-shrink: 0 !important;
     }
     
     .avatar-container {
@@ -1713,14 +1717,21 @@ a {
         margin-bottom: 24px;
     }
     
+    .section-badge {
+        display: flex !important;
+        width: max-content;
+        margin-bottom: 16px;
+    }
+    
     .hero-quote-box {
         font-size: 12px;
         padding: 6px 12px;
-        margin-bottom: 20px;
+        margin: 0 auto 20px 0; /* Left align on mobile */
         white-space: normal;
         max-width: 100%;
         text-align: center;
-        display: inline-block;
+        display: block !important;
+        width: max-content;
     }
     
     .thematic-blockquote {
@@ -1733,7 +1744,7 @@ a {
     }
     
     .stats-dashboard {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 12px;
     }
     
@@ -1759,14 +1770,14 @@ a {
     }
     
     .feature-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 20px;
     }
     
     .education-grid,
     .certifications-grid,
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 20px;
     }
     
@@ -1801,7 +1812,7 @@ a {
     }
     
     .contact-details-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
     
     .contact-form {
@@ -1809,7 +1820,7 @@ a {
     }
     
     .form-row-2 {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 16px;
     }
     
