@@ -1611,10 +1611,6 @@ a {
         letter-spacing: -0.5px;
     }
     
-    .profile-name .accent-text {
-        color: var(--color-text-white); /* Keep the name solid white as in reference */
-    }
-    
     .profile-title {
         color: var(--color-primary); /* Neon green */
         text-transform: uppercase;
@@ -1648,8 +1644,7 @@ a {
     }
     
     .profile-info .info-icon {
-        color: var(--color-text-muted); /* Muted icon color on mobile */
-        opacity: 0.5;
+        color: var(--color-primary); /* Green icon color on mobile to match reference */
         width: 16px;
         height: 16px;
     }
@@ -1672,20 +1667,9 @@ a {
         justify-content: center;
     }
     
-    /* Show logo marquee section on mobile but limit width to match buttons and prevent it from stretching too wide */
+    /* Hide logo marquee section on mobile to match reference screenshot */
     .profile-marquee-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        max-width: 260px;
-        margin: 0 auto 20px auto;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-    
-    .profile-separator {
-        margin: 16px 0 12px 0;
+        display: none;
     }
     
     .action-buttons {
@@ -1839,12 +1823,12 @@ a {
     }
     
     .nav-menu {
-        gap: 4px;
+        gap: 6px;
     }
 
     .nav-link {
         font-size: 13px;
-        padding: 6px 10px;
+        padding: 6px 8px; /* small padding to fit 'About Me' side-by-side */
     }
     
     .btn-nav-cta {
