@@ -34,6 +34,11 @@
     scroll-behavior: smooth;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background: var(--color-bg-gradient);
     background-attachment: fixed;
@@ -41,7 +46,6 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     min-height: 100vh;
-    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -1711,6 +1715,25 @@ a {
         font-size: 15px;
         line-height: 1.6;
         margin-bottom: 24px;
+    }
+    
+    .hero-quote-box {
+        font-size: 12px;
+        padding: 6px 12px;
+        margin-bottom: 20px;
+        white-space: normal;
+        max-width: 100%;
+        text-align: center;
+        display: inline-block;
+    }
+    
+    .thematic-blockquote {
+        padding: 16px 20px;
+        margin: 24px 0;
+    }
+    
+    .quote-text {
+        font-size: 16px;
     }
     
     .stats-dashboard {
