@@ -1811,11 +1811,16 @@ a {
     
     .floating-navbar {
         width: max-content;
-        max-width: calc(100vw - 24px);
-        bottom: 12px;
-        padding: 5px 5px 5px 12px;
-        gap: 16px; /* clean gap between menu and CTA button */
-        border-radius: 30px;
+        max-width: calc(100vw - 20px);
+        bottom: 16px;
+        background: #0c0c0c; /* solid dark black capsule */
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 40px;
+        padding: 5px 5px 5px 14px;
+        gap: 12px; /* tight space between menu and CTA */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
     }
     
     .navbar-profile {
@@ -1823,17 +1828,39 @@ a {
     }
     
     .nav-menu {
-        gap: 8px; /* clean spacing between menu links */
+        gap: 4px; /* clean and tight gap for capsule alignment */
+        display: flex;
+        align-items: center;
     }
 
     .nav-link {
         font-size: 13px;
-        padding: 6px 8px; /* small padding to fit 'About Me' side-by-side */
+        font-weight: 700;
+        padding: 8px 12px; /* vertical and horizontal padding for active pill */
+        color: #ffffff; /* bright white for inactive state contrast */
+        border-radius: 30px; /* capsule active background shape */
+        transition: var(--transition-fast);
+        display: inline-block;
+    }
+    
+    .nav-item.active .nav-link {
+        background-color: #1a1a1a; /* dark pill background from reference image */
+        color: var(--color-primary); /* bright neon emerald green */
+    }
+
+    .nav-link:hover {
+        color: var(--color-primary);
     }
     
     .btn-nav-cta {
-        padding: 8px 14px;
-        font-size: 12px;
+        padding: 8px 16px;
+        font-size: 12.5px;
+        font-weight: 800;
+        background-color: var(--color-primary);
+        color: #000000; /* deep solid black for CTA legibility */
+        border-radius: 30px; /* capsule CTA shape */
+        border: none;
+        white-space: nowrap;
     }
 }
 
