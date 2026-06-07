@@ -1683,9 +1683,11 @@ a {
         justify-content: center;
     }
     
-    /* Hide logo marquee section on mobile to match reference screenshot */
+    /* Show logo marquee section on mobile with proper spacing */
     .profile-marquee-section {
-        display: none !important;
+        display: flex !important;
+        width: 100%;
+        margin-bottom: 20px;
     }
     
     .action-buttons {
