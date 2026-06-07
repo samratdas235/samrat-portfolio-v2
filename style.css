@@ -1587,7 +1587,19 @@ a {
         gap: 48px;
     }
     
+    .profile-sidebar {
+        position: relative;
+        top: 0;
+        height: auto !important;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        display: block !important;
+    }
+    
     .profile-card {
+        height: auto !important;
+        flex-wrap: nowrap !important;
         padding: 36px 24px;
         flex-direction: column;
         text-align: center;
@@ -1669,7 +1681,7 @@ a {
     
     /* Hide logo marquee section on mobile to match reference screenshot */
     .profile-marquee-section {
-        display: none;
+        display: none !important;
     }
     
     .action-buttons {
