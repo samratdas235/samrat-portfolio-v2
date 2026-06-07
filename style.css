@@ -1584,11 +1584,11 @@ a {
     }
     
     .profile-card {
-        padding: 28px 20px;
+        padding: 36px 24px;
         flex-direction: column;
         text-align: center;
         align-items: center;
-        gap: 20px;
+        gap: 0; /* Remove generic flexbox gap to use custom margins for precise vertical spacing */
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
@@ -1597,33 +1597,96 @@ a {
     .avatar-container {
         width: 140px;
         height: 140px;
+        margin-bottom: 24px;
     }
     
     .profile-name {
-        font-size: 28px;
+        font-size: 26px;
+        margin-bottom: 8px;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+    
+    .profile-name .accent-text {
+        color: var(--color-text-white); /* Keep the name solid white as in reference */
     }
     
     .profile-title {
-        font-size: 12px;
-        margin-bottom: 16px;
+        color: var(--color-primary); /* Neon green */
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        margin-bottom: 24px;
+        text-shadow: 0 0 8px rgba(0, 230, 118, 0.15);
     }
     
     .profile-info {
         width: 100%;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 16px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05); /* Faint separator line */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Faint separator line */
+        padding: 20px 0;
+        margin-bottom: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
         align-items: center;
+    }
+    
+    .profile-info .info-item {
+        color: var(--color-text-muted);
+        font-size: 14px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    
+    .profile-info .info-icon {
+        color: var(--color-text-muted); /* Muted icon color on mobile */
+        opacity: 0.5;
+        width: 16px;
+        height: 16px;
     }
     
     .social-links {
         justify-content: center;
+        margin-bottom: 28px;
+        gap: 12px;
+        display: flex;
+    }
+    
+    .social-icon {
+        width: 44px;
+        height: 44px;
+        background-color: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Hide logo marquee section on mobile to prevent clutter and match reference */
+    .profile-marquee-section {
+        display: none;
     }
     
     .action-buttons {
         flex-direction: column;
         width: 100%;
-        gap: 10px;
+        gap: 12px;
+        margin-top: 0;
+        display: flex;
+    }
+    
+    .action-buttons .btn {
+        padding: 12px 24px;
+        font-size: 15px;
+        border-radius: 16px; /* Smooth rounded buttons */
+        width: 100%;
+        box-sizing: border-box;
     }
     
     .section-title {
