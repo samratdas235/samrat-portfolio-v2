@@ -2276,3 +2276,216 @@ a {
         transform: translateX(-50%); /* Shifts exactly 1 copy (7 logos) left to loop infinitely */
     }
 }
+
+/* ==========================================================================
+   PROJECT DETAILS & CLICKABLE CARD OVERLAYS
+   ========================================================================== */
+
+/* Make Project Card Clickable */
+.project-card {
+    position: relative;
+    transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.project-link::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2; /* Cover entire card block */
+}
+
+/* 5. QR Code Scanner Visual */
+.qr-visual .qr-frame {
+    width: 50px;
+    height: 50px;
+    border: 2px dashed var(--color-primary);
+    border-radius: 10px;
+    position: absolute;
+    box-shadow: 0 0 15px rgba(0, 230, 118, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(2, 2, 2, 0.4);
+    z-index: 2;
+}
+
+.qr-visual .qr-code-inner {
+    width: 32px;
+    height: 32px;
+    background-image: 
+        linear-gradient(90deg, var(--color-primary) 20%, transparent 20%, transparent 40%, var(--color-primary) 40%, var(--color-primary) 60%, transparent 60%, transparent 80%, var(--color-primary) 80%),
+        linear-gradient(var(--color-primary) 20%, transparent 20%, transparent 40%, var(--color-primary) 40%, var(--color-primary) 60%, transparent 60%, transparent 80%, var(--color-primary) 80%);
+    background-size: 8px 8px;
+    opacity: 0.6;
+}
+
+.qr-visual .scan-bar {
+    position: absolute;
+    width: 62px;
+    height: 2px;
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+    left: -6px;
+    top: 0;
+    animation: qrScan 2.5s infinite ease-in-out;
+}
+
+@keyframes qrScan {
+    0%, 100% { top: 8px; opacity: 0.3; }
+    50% { top: 40px; opacity: 1; }
+}
+
+/* Back Link Button */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-muted);
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-bottom: 36px;
+    transition: var(--transition-fast);
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+    transform: translateX(-4px);
+}
+
+.back-link .btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Project Hero */
+.project-hero {
+    margin-bottom: 36px;
+}
+
+/* Project Details Meta Card */
+.project-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    padding: 24px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.meta-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    letter-spacing: 0.12em;
+    font-weight: 700;
+}
+
+.meta-value {
+    font-size: 14px;
+    color: var(--color-text-white);
+    font-weight: 700;
+}
+
+.meta-value.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.meta-tech-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    padding: 2px 8px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    color: var(--color-text-gray);
+    font-weight: 600;
+}
+
+.meta-tech-tag img {
+    height: 11px;
+    width: auto;
+    object-fit: contain;
+}
+
+.meta-tech-tag.highlight {
+    color: var(--color-primary);
+    border-color: rgba(0, 230, 118, 0.2);
+    background-color: rgba(0, 230, 118, 0.04);
+}
+
+/* Case Study Body Content */
+.project-body-content {
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.project-body-content h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-text-white);
+    margin-top: 40px;
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.project-body-content p {
+    margin-bottom: 20px;
+    color: var(--color-text-gray);
+}
+
+.project-body-content ul {
+    margin-bottom: 24px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-body-content li {
+    color: var(--color-text-gray);
+    position: relative;
+    list-style-type: none;
+    padding-left: 8px;
+}
+
+.project-body-content li::before {
+    content: "•";
+    color: var(--color-primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Tablet & Mobile Media Queries for Details Page */
+@media (max-width: 1023px) {
+    .project-meta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .project-meta-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        padding: 20px;
+    }
+}
