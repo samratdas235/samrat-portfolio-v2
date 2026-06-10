@@ -4,20 +4,20 @@
 
 /* Custom Variables */
 :root {
-    --color-bg-dark: #070707; /* Near Solid Obsidian Black */
-    --color-bg-gradient: radial-gradient(circle at 50% 30%, #161616 0%, #070707 70%, #020202 100%); /* Faint, soft light spotlight in dark canvas */
+    --color-bg-dark: #121212; /* Rich Off-Black Base */
+    --color-bg-gradient: radial-gradient(circle at 50% 50%, #1e1e1e 0%, #121212 100%); /* Cinematic spot glow */
     
-    --color-card-bg: #121212; /* Solid Dark Gray Cards from reference image */
+    --color-card-bg: rgba(22, 22, 22, 0.65); /* Semi-translucent glass gray */
     --color-card-border: rgba(255, 255, 255, 0.06); /* Subtly defined border */
-    --color-card-border-hover: rgba(0, 230, 118, 0.35); /* Interactive Neon Green Border */
+    --color-card-border-hover: rgba(255, 255, 255, 0.25); /* Crisp white hover line */
     
-    --color-primary: #00e676; /* Bright Neon Emerald Green */
-    --color-primary-hover: #00c853;
-    --color-primary-glow: rgba(0, 230, 118, 0.15); /* Glowing Green Shadows */
-    --color-accent: #00c853; /* Complementary accent green */
+    --color-primary: #ffffff; /* High-Contrast Crisp White */
+    --color-primary-hover: #e2e8f0; /* Soft Silver */
+    --color-primary-glow: rgba(255, 255, 255, 0.15); /* Sleek White Shadows */
+    --color-accent: #ffffff; /* Monochromatic accent */
     --color-text-white: #ffffff; /* Brighter pure white for titles */
-    --color-text-gray: #f1f5f9; /* High contrast Slate Grey-White for descriptions */
-    --color-text-muted: #cbd5e1; /* Brighter secondary text for bullets and lists */
+    --color-text-gray: rgba(255, 255, 255, 0.85); /* High-contrast Slate-Grey-White */
+    --color-text-muted: rgba(255, 255, 255, 0.5); /* Secondary text */
     
     --font-heading: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -41,12 +41,30 @@ html, body {
 
 body {
     background: var(--color-bg-gradient);
+    background-color: var(--color-bg-dark);
     background-attachment: fixed;
     color: var(--color-text-gray);
     font-family: var(--font-body);
     line-height: 1.6;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    position: relative;
+}
+
+/* Cybernetic WebGL Wireframe Grid */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: -1;
 }
 
 a {
@@ -113,7 +131,7 @@ a {
     display: none;
 }
 .profile-card:hover {
-    border-color: rgba(0, 230, 118, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Avatar Container with glowing indicator */
@@ -150,13 +168,13 @@ a {
 
 @keyframes statusPulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.8);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.8);
     }
     70% {
-        box-shadow: 0 0 0 8px rgba(0, 230, 118, 0);
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
 }
 
@@ -181,7 +199,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-bottom: 28px;
-    text-shadow: 0 0 10px rgba(0, 230, 118, 0.2);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .profile-info {
@@ -238,9 +256,9 @@ a {
 .social-icon:hover {
     background-color: rgba(255, 255, 255, 0.08);
     color: var(--color-primary);
-    border-color: rgba(0, 230, 118, 0.4);
+    border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 230, 118, 0.15);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
 }
 
 /* Buttons */
@@ -271,7 +289,7 @@ a {
 
 .btn-primary {
     background-color: var(--color-primary);
-    color: #053b1b; /* Dark green text for contrast */
+    color: #121212; /* Dark green text for contrast */
     border: none;
 }
 
@@ -327,8 +345,8 @@ a {
     align-items: center;
     gap: 8px;
     padding: 6px 14px;
-    background-color: rgba(0, 230, 118, 0.04);
-    border: 1px solid rgba(0, 230, 118, 0.2);
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     font-size: 13px;
     font-weight: 700;
@@ -360,7 +378,7 @@ a {
     letter-spacing: 0.5px;
     position: relative;
     text-transform: uppercase;
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.1);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     background-color: rgba(2, 6, 23, 0.4);
 }
 
@@ -433,7 +451,7 @@ a {
 
 .stat-card:hover {
     border-color: var(--color-card-border-hover);
-    box-shadow: 0 10px 25px rgba(0, 230, 118, 0.15);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
     transform: translateY(-4px);
 }
 
@@ -444,7 +462,7 @@ a {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 230, 118, 0.05) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 60%);
     opacity: 0;
     transition: var(--transition-smooth);
     pointer-events: none;
@@ -496,7 +514,7 @@ a {
 .thematic-blockquote {
     border-left: 3px solid var(--color-primary);
     padding: 24px 32px;
-    background: linear-gradient(90deg, rgba(0, 230, 118, 0.04) 0%, transparent 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0%, transparent 100%);
     border-radius: 0 16px 16px 0;
     margin: 40px 0;
     position: relative;
@@ -567,8 +585,8 @@ a {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background-color: rgba(0, 230, 118, 0.08);
-    border: 1px solid rgba(0, 230, 118, 0.2);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--color-primary);
     display: flex;
     align-items: center;
@@ -670,7 +688,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 8px;
-    text-shadow: 0 0 8px rgba(0, 230, 118, 0.15);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
 .timeline-role {
@@ -725,15 +743,15 @@ a {
 .edu-card:hover {
     border-color: var(--color-card-border-hover);
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px rgba(0, 230, 118, 0.1);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
 }
 
 .edu-icon {
     width: 48px;
     height: 48px;
     border-radius: 12px;
-    background-color: rgba(0, 230, 118, 0.05);
-    border: 1px solid rgba(0, 230, 118, 0.15);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--color-primary);
     display: flex;
     align-items: center;
@@ -792,11 +810,11 @@ a {
 }
 
 .skill-badge:hover {
-    background-color: rgba(0, 230, 118, 0.08);
+    background-color: rgba(255, 255, 255, 0.08);
     border-color: var(--color-primary);
     color: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 230, 118, 0.15);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
 }
 
 /* Achievements List */
@@ -807,8 +825,8 @@ a {
 }
 
 .achievement-card {
-    background: linear-gradient(135deg, rgba(0, 230, 118, 0.03) 0%, rgba(18, 18, 18, 0.8) 40%, rgba(18, 18, 18, 0.95) 100%);
-    border: 1px solid rgba(0, 230, 118, 0.1);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(18, 18, 18, 0.8) 40%, rgba(18, 18, 18, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-left: 4px solid var(--color-primary);
     backdrop-filter: blur(12px);
     border-radius: 20px;
@@ -817,38 +835,38 @@ a {
     gap: 20px;
     align-items: flex-start;
     transition: var(--transition-smooth);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 230, 118, 0.02);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 0 0 12px rgba(255, 255, 255, 0.02);
 }
 
 .achievement-card:hover {
-    border-color: rgba(0, 230, 118, 0.35);
+    border-color: rgba(255, 255, 255, 0.35);
     border-left: 4px solid var(--color-primary);
-    background: linear-gradient(135deg, rgba(0, 230, 118, 0.08) 0%, rgba(18, 18, 18, 0.9) 40%, rgba(18, 18, 18, 1) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(18, 18, 18, 0.9) 40%, rgba(18, 18, 18, 1) 100%);
     transform: translateY(-4px) scale(1.01);
-    box-shadow: 0 12px 30px rgba(0, 230, 118, 0.15), 0 0 15px rgba(0, 230, 118, 0.05);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15), 0 0 15px rgba(255, 255, 255, 0.05);
 }
 
 .achievement-icon-box {
     width: 48px;
     height: 48px;
     border-radius: 14px;
-    background-color: rgba(0, 230, 118, 0.08);
-    border: 1px solid rgba(0, 230, 118, 0.3);
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 0 15px rgba(0, 230, 118, 0.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
     transition: var(--transition-smooth);
 }
 
 .achievement-card:hover .achievement-icon-box {
     background-color: var(--color-primary);
-    color: #053b1b;
+    color: #121212;
     border-color: var(--color-primary);
     transform: rotate(8deg) scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.4);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .achievement-details h4 {
@@ -898,32 +916,32 @@ a {
 }
 
 .certification-card:hover {
-    border-color: rgba(0, 230, 118, 0.35);
+    border-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 230, 118, 0.12);
-    background: linear-gradient(135deg, rgba(0, 230, 118, 0.04) 0%, rgba(18, 18, 18, 0.8) 40%, rgba(18, 18, 18, 0.95) 100%);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.12);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(18, 18, 18, 0.8) 40%, rgba(18, 18, 18, 0.95) 100%);
 }
 
 .cert-icon-wrapper {
     width: 46px;
     height: 46px;
     border-radius: 10px;
-    background-color: rgba(0, 230, 118, 0.06);
-    border: 1px solid rgba(0, 230, 118, 0.22);
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.22);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
     transition: var(--transition-smooth);
-    box-shadow: 0 0 10px rgba(0, 230, 118, 0.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
 }
 
 .certification-card:hover .cert-icon-wrapper {
     background-color: var(--color-primary);
-    color: #053b1b;
+    color: #121212;
     border-color: var(--color-primary);
-    box-shadow: 0 0 15px rgba(0, 230, 118, 0.35);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
     transform: scale(1.08) rotate(5deg);
 }
 
@@ -996,17 +1014,17 @@ a {
 }
 
 .project-card:hover {
-    border-color: rgba(0, 230, 118, 0.35);
+    border-color: rgba(255, 255, 255, 0.35);
     transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 230, 118, 0.15);
-    background: linear-gradient(135deg, rgba(0, 230, 118, 0.03) 0%, rgba(18, 18, 18, 0.8) 40%, rgba(18, 18, 18, 0.95) 100%);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(18, 18, 18, 0.8) 40%, rgba(18, 18, 18, 0.95) 100%);
 }
 
 .project-badge {
     align-self: flex-start;
     padding: 4px 12px;
-    background-color: rgba(0, 230, 118, 0.06);
-    border: 1px solid rgba(0, 230, 118, 0.2);
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     font-size: 11px;
     font-weight: 700;
@@ -1112,15 +1130,15 @@ a {
 .contact-detail-card:hover {
     border-color: var(--color-card-border-hover);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 230, 118, 0.08);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.08);
 }
 
 .detail-icon-wrapper {
     width: 48px;
     height: 48px;
     border-radius: 14px;
-    background-color: rgba(0, 230, 118, 0.06);
-    border: 1px solid rgba(0, 230, 118, 0.15);
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--color-primary);
     display: flex;
     align-items: center;
@@ -1198,7 +1216,7 @@ a {
     outline: none;
     border-color: var(--color-primary);
     background-color: rgba(2, 6, 23, 0.5);
-    box-shadow: 0 0 10px rgba(0, 230, 118, 0.15);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
 .btn-submit {
@@ -1245,13 +1263,13 @@ a {
     width: 64px;
     height: 64px;
     border-radius: 50%;
-    background-color: rgba(0, 230, 118, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     color: var(--color-primary);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    box-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 .success-icon-wrapper svg {
@@ -1476,7 +1494,7 @@ a {
 /* Action button inside bottom navbar */
 .btn-nav-cta {
     background-color: var(--color-primary);
-    color: #053b1b;
+    color: #121212;
     font-size: 14px;
     font-weight: 800;
     padding: 10px 24px;
@@ -1634,7 +1652,7 @@ a {
         font-size: 11px;
         letter-spacing: 0.12em;
         margin-bottom: 24px;
-        text-shadow: 0 0 8px rgba(0, 230, 118, 0.15);
+        text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
     }
     
     .profile-info {
@@ -1969,7 +1987,7 @@ a {
 
 @keyframes pulseCenter {
     0%, 100% { transform: scale(1); box-shadow: 0 0 10px var(--color-primary-glow); }
-    50% { transform: scale(1.15); box-shadow: 0 0 20px rgba(0, 230, 118, 0.4); }
+    50% { transform: scale(1.15); box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
 }
 @keyframes flowDashed {
     to { background-position: 120px 0; }
@@ -2070,11 +2088,11 @@ a {
 }
 @keyframes pulseUser1 {
     0%, 100% { border-color: rgba(255, 255, 255, 0.2); box-shadow: none; }
-    40%, 60% { border-color: var(--color-primary); box-shadow: 0 0 10px rgba(0, 230, 118, 0.2); }
+    40%, 60% { border-color: var(--color-primary); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
 }
 @keyframes pulseUser2 {
     0%, 100% { border-color: rgba(255, 255, 255, 0.2); box-shadow: none; }
-    40%, 60% { border-color: var(--color-primary); box-shadow: 0 0 10px rgba(0, 230, 118, 0.2); }
+    40%, 60% { border-color: var(--color-primary); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); }
 }
 
 /* 3. Dashboard Visual */
@@ -2114,8 +2132,8 @@ a {
 .dashboard-visual .bar-3 { height: 75px; }
 
 .project-card:hover .dashboard-visual .chart-bar {
-    background-color: rgba(0, 230, 118, 0.05);
-    border-color: rgba(0, 230, 118, 0.2);
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .dashboard-visual .chart-line-svg {
@@ -2161,7 +2179,7 @@ a {
     width: 140px;
     height: 140px;
     border-radius: 50%;
-    background: conic-gradient(from 0deg, rgba(0, 230, 118, 0.08) 0deg, transparent 90deg, transparent 360deg);
+    background: conic-gradient(from 0deg, rgba(255, 255, 255, 0.08) 0deg, transparent 90deg, transparent 360deg);
     animation: rotateRadar 4s linear infinite;
 }
 .seo-visual .scan-ring {
@@ -2311,7 +2329,7 @@ a {
     border: 2px dashed var(--color-primary);
     border-radius: 10px;
     position: absolute;
-    box-shadow: 0 0 15px rgba(0, 230, 118, 0.15);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2432,8 +2450,8 @@ a {
 
 .meta-tech-tag.highlight {
     color: var(--color-primary);
-    border-color: rgba(0, 230, 118, 0.2);
-    background-color: rgba(0, 230, 118, 0.04);
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.04);
 }
 
 /* Case Study Body Content */
