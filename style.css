@@ -807,6 +807,16 @@ a {
     font-weight: 600;
     color: var(--color-text-white);
     transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skill-badge::before {
+    content: "✓";
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.5);
+    transition: var(--transition-fast);
 }
 
 .skill-badge:hover {
@@ -815,6 +825,10 @@ a {
     color: var(--color-primary);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+.skill-badge:hover::before {
+    color: var(--color-primary);
 }
 
 /* Achievements List */
