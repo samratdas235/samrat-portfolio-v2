@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PORTFOLIO INTERACTIVE LOGIC & ANIMATIONS - SAMRAT DAS
+   PORTFOLIO INTERACTIVE LOGIC & ANIMATIONS - MR. SAMRAT D
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
